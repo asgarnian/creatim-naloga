@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Meni from "./Components/Meni";
+import Prva from "./Components/Prva";
+import Slideshow from "./Components/Slideshow";
+import Izdelki from "./Components/Izdelki";
+
+const {detect} = require('detect-browser');
+const browser = detect();
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+    return (
+        <>
+            <Meni/>
+            <Slideshow/>
+            <Izdelki/>
+
+        </>
+
+    );
 }
 
 export default App;

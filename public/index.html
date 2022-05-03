@@ -24,20 +24,170 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Creatim Naloga</title>
+    <link href='https://fonts.googleapis.com/css?family=Armata&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+
+
+
+
+      function testFunckija(){
+        $("#prva").html(izpisStevil());
+      }
+
+      window.onload = function () {
+
+
+        let navbar = $("#glava-start");
+
+        window.onscroll = function () {
+
+            if (window.pageYOffset > 280) {
+
+              navbar.addClass("glava-hide");
+
+            } else if(window.pageYOffset < 180){
+              navbar.removeClass("glava-hide");
+
+            }
+
+        }
+
+        $(".menu-btn").on("mouseenter", function () {
+          console.log("side-menu-links a enter");
+          $("#mega-meni").css('display', 'flex');
+
+          setTimeout(function () {
+            $("#mega-meni").addClass("mega-meni-open");
+          }, 10); //The delay is added because otherwise the css opacity transition isn't working
+        });
+
+        $("#meni-okvir").on("mouseleave", function () {
+          console.log("leaving up");
+
+          if ($('#mega-meni:hover').length == 0) {
+            $("#mega-meni").removeClass("mega-meni-open");
+            $("#mega-meni").css('display', 'none');
+
+          }
+
+
+        });
+        $("#mega-meni").on("mouseleave", function () {
+          console.log("side-menu leave");
+          $("#mega-meni").removeClass("mega-meni-open");
+          setTimeout(function () {
+            $("#mega-meni").css('display', '');
+          }, 10);
+
+        });
+
+
+
+        //prva naloga
+
+        //$("#prva").html(izpisStevil());
+        function izpisStevil(){
+          let izpis="";
+          for(let i=1; i<=100; i++){
+
+            if(i%3==0 && i%5==0){
+              izpis+="Trojka + Petka";
+            }else if(i%3==0){
+              izpis+="Trojka";
+            }else if(i%5==0){
+              izpis+="Petka";
+            }else{
+              izpis+=i;
+            }
+            izpis+=" ";
+
+          }
+          return izpis;
+        }
+        /*
+        //tretja naloga
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+          // IE 10 or older => return version number
+          alert (parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10));
+        }
+
+        var ua = window.navigator.userAgent;
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+          // IE 11 => return version number
+          var rv = ua.indexOf('rv:');
+          alert (parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10));
+        }
+
+         */
+
+        /*
+        //druga naloga
+        (function() {
+          var length = 20;
+          for (let index=0; index < length; index++) {
+            setTimeout(function() {
+              console.log(index);
+            }, index*200);
+          }
+        })();
+
+
+        //peta naloga
+        $("#element1").on("mousemove",function (event){
+          let msg = "Element1 mousemove na poziciji ";
+          msg += event.pageX + ", " + event.pageY;
+          console.log(msg);
+
+        });
+        $("#element2").on("mousemove",function (event){
+          let msg = "Element2 mousemove na poziciji ";
+          msg += event.pageX + ", " + event.pageY;
+          console.log(msg);
+
+        });
+        $("#element3").on("mousemove",function (event){
+          let msg = "Element3 mousemove na poziciji ";
+          msg += event.pageX + ", " + event.pageY;
+          console.log(msg);
+
+        });
+
+
+
+        //četrta naloga
+        var object = {
+          alert : function(txt){
+            alert(txt);
+            return this;
+          },
+          confirm : function(txt){
+            confirm(txt);
+            return this;
+          }
+        }
+
+        //object.alert("Warning: you are about to delete this item!");
+        //object.confirm("Are you sure?");
+        object.alert("Warning: you are about to delete this item!").confirm("Are you sure?");
+        */
+
+
+
+      };
+
+
+
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
